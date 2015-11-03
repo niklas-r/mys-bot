@@ -19,7 +19,7 @@ const QUOTES = [
 
 // Fancy generator shit to get new shuffled array each time
 function * generateQuoteQueue () {
-  let quotes = _.shuffle(QUOTES)
+  const quotes = _.shuffle(QUOTES)
   for (let i in quotes) {
     yield quotes[i]
   }
