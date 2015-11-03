@@ -1,0 +1,14 @@
+{
+  "name": "mys-bot",
+  "version": "0.0.0",
+  "description": "Mysgruppen Slack bot",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "slack-client": "^1.4.1"
+  },
+  "devDependencies": {},
+  "author": "Niklas Rasmusson <niklas.rasmusson@gmail.com>",
+  "contributors": [],
+  "license": "MIT"
+}
