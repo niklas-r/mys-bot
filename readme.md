@@ -12,7 +12,7 @@ You will need your own bot for testing. Here's how you set one up.
 - Duplicate the `.env.dist`-file and name it `.env`
 - Set SLACK_KEY variable in `.env` to you actual API key from Slack
 - Move bot to a private channel using the web or desktop client.
-- You're bot is now ready to be controlled by your will.
+- Your bot is now ready to be controlled by your will.
 
 ## Quickstart
 - `cd path/to/project`
