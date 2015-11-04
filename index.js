@@ -1,4 +1,7 @@
 'use strict'
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').load()
+}
 
 const http = require('http')
 const slackConnection = require('./src/slack-connection')
