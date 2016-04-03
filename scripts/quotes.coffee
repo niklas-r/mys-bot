@@ -8,11 +8,11 @@
 #   None
 #
 # Commands:
-#   ernst citat
-#   ernst visdomsord
-#   ernst quote
+#   citat
+#   visdomsord
+#   väl valda ord
 QUOTES = require('../static/quotes')
 
 module.exports = (robot) ->
-  robot.respond /(citat|visdomsord|quote)/i, (res) ->
+  robot.hear /(citat|visdomsord|väl valda ord)/i, (res) ->
     res.send res.random QUOTES
