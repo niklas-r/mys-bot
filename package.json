@@ -4,6 +4,11 @@
   "private": true,
   "author": "Niklas Rasmusson <niklas.rasmusson@gmail.com>",
   "description": "Mysgruppens Slack bot",
+  "scripts": {
+    "start": "bin/hubot",
+    "test": "mocha --compilers coffee:coffee-script/register test",
+    "test:watch": "npm run test -- --watch"
+  },
   "dependencies": {
     "dotenv": "^1.2.0",
     "hubot": "^2.18.0",
@@ -15,5 +20,13 @@
   },
   "engines": {
     "node": "5.x"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coffee-script": "^1.10.0",
+    "expect": "^1.16.0",
+    "hubot-test-helper": "^1.4.4",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
   }
 }
