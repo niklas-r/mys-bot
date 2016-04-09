@@ -1,0 +1,19 @@
+{
+  "morning": [
+    "God morgon {user}, min kära vän!",
+    "Morgonstund har guld i mund, {user}.",
+    "{user}, din närvaro är en underbar start på dagen!"
+  ],
+  "day": [
+    "God dag {user}!",
+    "{user}! Äntligen är du här!",
+    "Jag hälsar dig hjärtligt välkommen, {user}.",
+    "{user}, du är lika välkommen som vårens första vitsippa.",
+    "Var hälsad, {user}.",
+    "{user}, du förgyller allas våran dag med din närvaro."
+  ],
+  "evening": [
+    "God afton {user}!",
+    "God kväll {user}!"
+  ]
+}
