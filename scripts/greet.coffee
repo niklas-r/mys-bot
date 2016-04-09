@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   välkomna {användare} - Ernst välkomnar {användare}
+#   ernst välkomna {användare} - Ernst välkomnar {användare}
 interpolate = require('interpolate')
 greetings = require('../static/greetings')
 module.exports = (robot) ->
