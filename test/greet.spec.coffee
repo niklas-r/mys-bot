@@ -21,12 +21,13 @@ describe '"välkomna" command', ->
     { moment: 'evening', date: new Date(2016, 3, 5, 0, 0 ,0) }
     { moment: 'evening', date: new Date(2016, 3, 5, 3, 59 ,0) }
   ].forEach((test) ->
-    it "should greet a user in the #{test.moment} at #{test.date.toString()}", (done) ->
-      @clock = sinon.useFakeTimers(test.date.getTime())
-      interpolatedGreetings = greetings[test.moment].map (greeting) ->
-        interpolate(greeting, {user: '@kalle'})
+    it "should greet a user in the #{test.moment} at #{test.date.toString()}",
+      (done) ->
+        @clock = sinon.useFakeTimers(test.date.getTime())
+        interpolatedGreetings = greetings[test.moment].map (greeting) ->
+          interpolate(greeting, {user: '@kalle'})
 
-      @room.user.say('pelle', '@hubot välkomna @kalle').then =>
-        expect(interpolatedGreetings).to.include(@room.messages[1][1])
-        done()
+        @room.user.say('pelle', '@hubot välkomna @kalle').then =>
+          expect(interpolatedGreetings).to.include(@room.messages[1][1])
+          done()
   )
