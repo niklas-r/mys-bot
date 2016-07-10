@@ -19,7 +19,13 @@ upon have been set.
 
 You can start ernst locally by running:
 
+**OSX**
+
     % bin/hubot
+
+**Windows**
+
+    % .\bin\hubot
 
 You'll see some start up output and a prompt:
 
@@ -32,30 +38,12 @@ Then you can interact with ernst by typing `ernst help`.
     ernst help - Displays all of the help commands that ernst knows about.
     ...
 
-### Configuration
-
-A few scripts (including some installed by default) require environment
-variables to be set as a simple form of configuration.
-
-Each script should have a commented header which contains a "Configuration"
-section that explains which values it requires to be placed in which variable.
-When you have lots of scripts installed this process can be quite labour
-intensive. The following shell command can be used as a stop gap until an
-easier way to do this has been implemented.
-
-    grep -o 'hubot-[a-z0-9_-]\+' external-scripts.json | \
-      xargs -n1 -I {} sh -c 'sed -n "/^# Configuration/,/^#$/ s/^/{} /p" \
-          $(find node_modules/{}/ -name "*.coffee")' | \
-        awk -F '#' '{ printf "%-25s %s\n", $1, $2 }'
-
-How to set environment variables will be specific to your operating system.
-Rather than recreate the various methods and best practices in achieving this,
-it's suggested that you search for a dedicated guide focused on your OS.
-
 ### Scripting
 
 An example script is included at `scripts/example.coffee`, so check it out to
 get started, along with the [Scripting Guide](scripting-docs).
+
+You can learn about how scripts are written in the [example.coffee](./scripts/example.coffee)
 
 For many common tasks, there's a good chance someone has already one to do just
 the thing.
@@ -106,62 +94,11 @@ to including all scripts.**
 
 [npmjs]: https://www.npmjs.com
 
-### hubot-scripts
-
-Before hubot plugin packages were adopted, most plugins were held in the
-[hubot-scripts][hubot-scripts] package. Some of these plugins have yet to be
-migrated to their own packages. They can still be used but the setup is a bit
-different.
-
-To enable scripts from the hubot-scripts package, add the script name with
-extension as a double quoted string to the `hubot-scripts.json` file in this
-repo.
-
-[hubot-scripts]: https://github.com/github/hubot-scripts
-
-##  Persistence
-
-If you are going to use the `hubot-redis-brain` package (strongly suggested),
-you will need to add the Redis to Go addon on Heroku which requires a verified
-account or you can create an account at [Redis to Go][redistogo] and manually
-set the `REDISTOGO_URL` variable.
-
-    % heroku config:add REDISTOGO_URL="..."
-
-If you don't need any persistence feel free to remove the `hubot-redis-brain`
-from `external-scripts.json` and you don't need to worry about redis at all.
-
-[redistogo]: https://redistogo.com/
-
-## Adapters
-
-Adapters are the interface to the service you want your hubot to run on, such
-as Campfire or IRC. There are a number of third party adapters that the
-community have contributed. Check [Hubot Adapters][hubot-adapters] for the
-available ones.
-
-If you would like to run a non-Campfire or shell adapter you will need to add
-the adapter package as a dependency to the `package.json` file in the
-`dependencies` section.
-
-Once you've added the dependency with `npm install --save` to install it you
-can then run hubot with the adapter.
-
-    % bin/hubot -a <adapter>
-
-Where `<adapter>` is the name of your adapter without the `hubot-` prefix.
-
-[hubot-adapters]: https://github.com/github/hubot/blob/master/docs/adapters.md
-
 ## Deployment
 
-    % heroku create --stack cedar
+If you have the appropriate permissions, all you need to do is to run:
+
     % git push heroku master
-
-If your Heroku account has been verified you can run the following to enable
-and add the Redis to Go addon to your app.
-
-    % heroku addons:add redistogo:nano
 
 If you run into any problems, checkout Heroku's [docs][heroku-node-docs].
 
@@ -172,8 +109,6 @@ Heroku][deploy-heroku] wiki page.
 
 [heroku-node-docs]: http://devcenter.heroku.com/articles/node-js
 [deploy-heroku]: https://github.com/github/hubot/blob/master/docs/deploying/heroku.md
-
-[hubot-adapters]: https://github.com/github/hubot/blob/master/docs/adapters.md
 
 ## Restart the bot
 
