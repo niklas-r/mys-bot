@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   citat, visdomsord, väl valda ord - Ernst shares an insightful quote
+#   citat, visdomsord, väl valda ord - Ernst delar med sig av ett insiktsfullt citat
 QUOTES = require('../static/quotes')
 
 module.exports = (robot) ->
