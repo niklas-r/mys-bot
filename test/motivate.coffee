@@ -14,4 +14,17 @@ describe '"motivera" command', ->
 
     @room.user.say('pelle', '@hubot motivera @kalle123').then =>
       expect(interpolatedMotivation).to.include(@room.messages[1][1])
+      expect(@room.messages.length).to.equal(2)
       done()
+
+  it "should motivate you", (done) ->
+    interpolatedMotivation = motivations.map (motivation) ->
+      interpolate(motivation, {user: '@pelle'})
+
+    @room.user.say('pelle', '@hubot motivera mig').then =>
+      try
+        expect(interpolatedMotivation).to.include(@room.messages[1][1])
+        expect(@room.messages.length).to.equal(2)
+        done()
+      catch e
+        done(e)
