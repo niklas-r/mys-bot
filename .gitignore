@@ -2,6 +2,3 @@ node_modules
 .DS_Store*
 .hubot_history
 .env
-
-# added by GitSavvy
-/readme.md
