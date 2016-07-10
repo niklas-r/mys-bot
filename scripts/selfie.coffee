@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   selfie - Ernst shares a beautiful selfie
+#   selfie - Ernst delar en vacker selfie
 SELFIES = require('../static/selfies')
 
 module.exports = (robot) ->
