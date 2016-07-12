@@ -14,13 +14,13 @@ interpolate = require('interpolate')
 motivations = require('../static/motivations')
 
 module.exports = (robot) ->
+  robot.respond /motivera mig/i, (msg) ->
     user = "@#{msg.message.user.name}"
     motivation = msg.random motivations
     interpolatadeMotivation = interpolate(motivation, user: user)
     msg.send interpolatadeMotivation
 
-  # robot.hear /motivera (@?\S+)(?!mig)/, (msg) ->
-  robot.hear /motivera ((?!mig)(?:@?\S+))/, (msg) ->
+  robot.respond /motivera ((?!mig)(?:@?\S+))/i, (msg) ->
     user = msg.match[1]
     motivation = msg.random motivations
     interpolatadeMotivation = interpolate(motivation, user: user)
