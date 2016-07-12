@@ -14,8 +14,7 @@ interpolate = require('interpolate')
 motivations = require('../static/motivations')
 
 module.exports = (robot) ->
-  robot.hear /motivera mig/, (msg) ->
-    user = "@#{msg.message.user.id}"
+    user = "@#{msg.message.user.name}"
     motivation = msg.random motivations
     interpolatadeMotivation = interpolate(motivation, user: user)
     msg.send interpolatadeMotivation
