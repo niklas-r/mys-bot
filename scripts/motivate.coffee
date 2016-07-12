@@ -9,7 +9,7 @@
 #
 # Commands:
 #   ernst motivera <användare> - Ernst försöker motivera <användare>
-#   ernst motivera mig - Ernst försöker dig
+#   ernst motivera mig - Ernst försöker motivera dig
 interpolate = require('interpolate')
 motivations = require('../static/motivations')
 
