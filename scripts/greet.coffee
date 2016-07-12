@@ -12,7 +12,7 @@
 interpolate = require('interpolate')
 greetings = require('../static/greetings')
 module.exports = (robot) ->
-  robot.respond /välkomna (.*)$/, (res) ->
+  robot.respond /välkomna (.*)$/i, (res) ->
     user = res.match[1]
     hours = new Date().getHours()
     if hours >= 0 and hours < 4 or hours >= 18 and hours <= 23

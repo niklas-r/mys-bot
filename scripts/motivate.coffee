@@ -9,19 +9,18 @@
 #
 # Commands:
 #   ernst motivera <användare> - Ernst försöker motivera <användare>
-#   ernst motivera mig - Ernst försöker dig
+#   ernst motivera mig - Ernst försöker motivera dig
 interpolate = require('interpolate')
 motivations = require('../static/motivations')
 
 module.exports = (robot) ->
-  robot.hear /motivera mig/, (msg) ->
-    user = "@#{msg.message.user.id}"
+  robot.respond /motivera mig/i, (msg) ->
+    user = "@#{msg.message.user.name}"
     motivation = msg.random motivations
     interpolatadeMotivation = interpolate(motivation, user: user)
     msg.send interpolatadeMotivation
 
-  # robot.hear /motivera (@?\S+)(?!mig)/, (msg) ->
-  robot.hear /motivera ((?!mig)(?:@?\S+))/, (msg) ->
+  robot.respond /motivera ((?!mig)(?:@?\S+))/i, (msg) ->
     user = msg.match[1]
     motivation = msg.random motivations
     interpolatadeMotivation = interpolate(motivation, user: user)
